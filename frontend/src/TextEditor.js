@@ -1,10 +1,5 @@
-
 function TextEditor() {
-    return (
-        <div>
-            Hi
-        </div>
-    )
+  return <div>Hi</div>;
 }
 
-export default TextEditor
+export default TextEditor;
