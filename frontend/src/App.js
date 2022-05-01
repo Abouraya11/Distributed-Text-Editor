@@ -1,10 +1,8 @@
-
+import TextEditor from "./TextEditor"
 function App() {
   return (
-    <div className="App">
-      HI
-    </div>
-  );
+    <TextEditor />
+  )
 }
 
-export default App;
+export default App
