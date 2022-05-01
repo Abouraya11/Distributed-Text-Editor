@@ -1,8 +1,5 @@
-const express = require("express");
 const mongoose = require("mongoose");
 const File = require("./file");
-
-const app = express();
 const port = 4000;
 
 const dbURI =
@@ -13,6 +10,9 @@ mongoose
   .then((result) => app.listen(port))
   .catch((err) => console.log(err));
 
-app.get("/", (req, res) => {
-  res.send("hello my world br");
-});
+  const socket_io = require("socket.io")(4000, {
+    origin: "http://localhost:3000",
+    methods: ["GET", "POST"],
+    credentials: true,
+  });
+  
