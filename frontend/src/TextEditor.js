@@ -21,6 +21,10 @@ function TextEditor() {
     };
   }, []);
 
+  useEffect(() => {
+    socket.emit("retrieve_document", doc_id);
+  }, [socket, quill, doc_id]);
+
   const wrapper_handler = useCallback((wrapper) => {
     const container = document.createElement("div");
 
