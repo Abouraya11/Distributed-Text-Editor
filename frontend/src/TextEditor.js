@@ -1,7 +1,7 @@
 import { io } from "socket.io-client";
 import Quill from "quill";
 import "quill/dist/quill.snow.css";
-import React, { useEffect, useState,useCallback } from "react";
+import React, { useEffect, useState, useCallback } from "react";
 import { useParams } from "react-router-dom"; // React DOM Version 5
 
 function TextEditor() {
@@ -22,7 +22,6 @@ function TextEditor() {
   }, []);
 
   const wrapper_handler = useCallback((wrapper) => {
-
     const container = document.createElement("div");
 
     wrapper.append(container);
@@ -34,13 +33,11 @@ function TextEditor() {
     setQuill(q);
   }, []);
 
-  
   return (
     <div>
       <div id="container" ref={wrapper_handler}></div>
     </div>
   );
 }
-
 
 export default TextEditor;
