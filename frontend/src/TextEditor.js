@@ -23,6 +23,11 @@ function TextEditor() {
 
   useEffect(() => {
     socket.emit("retrieve_document", doc_id);
+
+    socket.once("request_document", (document) => {
+      quill.setContents(document);
+      quill.enable();
+      
   }, [socket, quill, doc_id]);
 
   const wrapper_handler = useCallback((wrapper) => {
