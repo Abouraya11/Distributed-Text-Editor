@@ -19,7 +19,7 @@ socket_io.on("connection", (socket) => {
   socket.on("retrieve_document", async (documentId) => {
     const document = await document_managment(documentId);
     socket.join(documentId);
-    
+
     socket.emit("request_document", document.data_entry);
   });
 });
@@ -27,5 +27,5 @@ socket_io.on("connection", (socket) => {
 
 
 async function document_managment(file_id) {
-  return "aaa"
+  return await File.create({ _id: file_id, data_entry: "" });
 }

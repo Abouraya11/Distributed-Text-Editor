@@ -41,6 +41,7 @@ function TextEditor() {
     wrapper.innerHtml = "";
 
     setQuill(q);
+
   }, []);
 
   return (
