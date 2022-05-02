@@ -33,5 +33,5 @@ socket_io.on("connection", (socket) => {
 async function document_managment(file_id) {
   const document = await File.findById(file_id);
   if (document) return document;
-  return await File.create({ id: file_id, data_entry: "" });
+  return await File.create({ _id: file_id, data_entry: "" });
 }
