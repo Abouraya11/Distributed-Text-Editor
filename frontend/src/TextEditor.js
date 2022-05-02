@@ -32,11 +32,11 @@ function TextEditor() {
   }, [socket, quill, doc_id]);
 
   useEffect(() => {
-    
+    if (socket && quill) {
       const interval = setInterval(() => {
         socket.emit("push-changes-db", quill.getContents());
       }, 500);
-    
+    }
   }, [socket, quill]);
 
   const wrapper_handler = useCallback((wrapper) => {
