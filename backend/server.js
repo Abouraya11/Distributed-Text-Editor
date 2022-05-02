@@ -21,7 +21,7 @@ socket_io.on("connection", (socket) => {
     socket.join(documentId);
 
     socket.emit("request_document", document.data_entry);
-    
+
     socket.on("push-changes-db", async (data_entry) => {
       await File.findByIdAndUpdate(documentId, { data_entry });
     });
@@ -31,5 +31,7 @@ socket_io.on("connection", (socket) => {
 
 
 async function document_managment(file_id) {
-  return await File.create({ _id: file_id, data_entry: "" });
+  const document = await File.findById(file_id);
+  if (document) return document;
+  return await File.create({ id: file_id, data_entry: "" });
 }
