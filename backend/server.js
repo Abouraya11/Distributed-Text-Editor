@@ -21,6 +21,10 @@ socket_io.on("connection", (socket) => {
     socket.join(documentId);
 
     socket.emit("request_document", document.data_entry);
+    
+    socket.on("push-changes-db", async (data_entry) => {
+      await File.findByIdAndUpdate(documentId, { data_entry });
+    });
   });
 });
 
