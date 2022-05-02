@@ -18,6 +18,8 @@ const socket_io = require("socket.io")(4000, {
 socket_io.on("connection", (socket) => {
   socket.on("retrieve_document", async (documentId) => {
     const document = await document_managment(documentId);
+    socket.join(documentId);
+    
     socket.emit("request_document", document.data_entry);
   });
 });
