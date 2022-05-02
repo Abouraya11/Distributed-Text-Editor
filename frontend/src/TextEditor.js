@@ -31,6 +31,14 @@ function TextEditor() {
     }
   }, [socket, quill, doc_id]);
 
+  useEffect(() => {
+    
+      const interval = setInterval(() => {
+        socket.emit("push-changes-db", quill.getContents());
+      }, 500);
+    
+  }, [socket, quill]);
+
   const wrapper_handler = useCallback((wrapper) => {
     const container = document.createElement("div");
 
