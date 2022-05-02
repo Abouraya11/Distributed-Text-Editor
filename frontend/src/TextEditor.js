@@ -42,6 +42,10 @@ function TextEditor() {
 
     setQuill(q);
 
+    q.disable();
+    q.setText("Please wait..");
+    setQuill(q);
+
   }, []);
 
   return (
