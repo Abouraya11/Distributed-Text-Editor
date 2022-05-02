@@ -36,6 +36,10 @@ function TextEditor() {
       const interval = setInterval(() => {
         socket.emit("push-changes-db", quill.getContents());
       }, 500);
+
+      return () => {
+        clearInterval(interval);
+      };
     }
   }, [socket, quill]);
 
