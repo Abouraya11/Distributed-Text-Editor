@@ -14,3 +14,16 @@ const socket_io = require("socket.io")(4000, {
   methods: ["GET", "POST"],
   credentials: true,
 });
+
+socket_io.on("connection", (socket) => {
+  socket.on("retrieve_document", async (documentId) => {
+    const document = await document_managment(documentId);
+    socket.emit("request_document", document.data_entry);
+  });
+});
+
+
+
+async function document_managment(file_id) {
+  return "aaa"
+}
