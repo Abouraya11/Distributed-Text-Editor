@@ -46,7 +46,7 @@ socket_io.on("connection", (socket) => {
     });
 
     socket.emit("request_document", document.data_entry);
-
+   // broadcasting a message to everyone with the updates except the requesting client
     socket.on("broadcast_updates", (delta) => {
       socket.broadcast.to(documentId).emit("update_content", delta);
     });
