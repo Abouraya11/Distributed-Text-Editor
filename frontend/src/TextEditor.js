@@ -116,6 +116,12 @@ function TextEditor() {
     setQuill(q);
   }, []);
 
+
+  const new_doc = () => {
+    const win = window.open(`/documents/${uuidV4()}`, "_blank");
+    win.focus();
+  };
+
   return (
     <div>
       <button className="button" onClick={new_doc}>
