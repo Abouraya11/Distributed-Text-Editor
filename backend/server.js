@@ -36,7 +36,10 @@ socket_io.on("connection", (socket) => {
     const document = await document_managment(documentId);
     socket.join(documentId);
 
+    // Socket.on listens to a specific event called "check-users"  and collest the documentID
     socket.on("check-users", async(documentId) => {
+      //creating const num that access the socket with the documentID using socket_io.in and then gets all the sockets in it using fetchSockets
+      //and getting the length of it to get the nu ber of users with this specific id.
       const num = (await socket_io.in(documentId).fetchSockets()).length;
     })
 
