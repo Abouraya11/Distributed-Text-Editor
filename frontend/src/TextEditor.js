@@ -65,7 +65,8 @@ function TextEditor() {
         //setting the interval with 500ms for making the users numbers update each half second.
       }, 500);
     }
-  })
+    //Make useEffect work on any change on the nymber of users or the socket.
+  }, [no_of_users, socket])
 
   /* 
    * Quill is used mainly because it allows us to do small operations one at a time instead of copying
