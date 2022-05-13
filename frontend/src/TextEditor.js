@@ -97,6 +97,8 @@ function TextEditor() {
         New Document
       </button>
 
+      <br /> 
+      <br />
       <button>Load Document</button>
       <div id="container" ref={wrapper_handler}></div>
     </div>
