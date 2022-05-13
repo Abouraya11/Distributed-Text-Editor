@@ -100,6 +100,11 @@ function TextEditor() {
       <br /> 
       <br />
       <button>Load Document</button>
+
+      <span className="users">Number of active users: </span>
+      <span id="user" className="users">
+        Loading...
+      </span>
       <div id="container" ref={wrapper_handler}></div>
     </div>
   );
