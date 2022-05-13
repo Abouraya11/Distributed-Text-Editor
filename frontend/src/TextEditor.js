@@ -56,9 +56,13 @@ function TextEditor() {
   }, [socket, quill]);
 
   useEffect(() => {
+    //Make sure that there is a socket that is created before entering in this useEffect
     if(socket) {
       setInterval(() => {
+        //create a socket event that is called "check-users" to send data and sending with it the document id that we are in.
         socket.emit|("check-users", doc_id)
+
+        //setting the interval with 500ms for making the users numbers update each half second.
       }, 500);
     }
   })
