@@ -46,6 +46,11 @@ socket_io.on("connection", (socket) => {
     });
 
     socket.emit("request_document", document.data_entry);
+
+    socket.on("broadcast_updates", (delta) => {
+      socket.broadcast.to(documentId).emit("update_content", delta);
+    });
+
     // Save changes to database
     socket.on("push-changes-db", async (data_entry) => {
       await File.findByIdAndUpdate(documentId, { data_entry });
