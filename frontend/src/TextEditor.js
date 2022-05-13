@@ -75,6 +75,7 @@ function TextEditor() {
 
   return (
     <div>
+      <button>Load Document</button>
       <div id="container" ref={wrapper_handler}></div>
     </div>
   );
