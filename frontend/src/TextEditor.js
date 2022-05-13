@@ -75,6 +75,10 @@ function TextEditor() {
 
   return (
     <div>
+      <button className="button" onClick={new_doc}>
+        New Document
+      </button>
+
       <button>Load Document</button>
       <div id="container" ref={wrapper_handler}></div>
     </div>
