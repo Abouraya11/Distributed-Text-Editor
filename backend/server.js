@@ -36,6 +36,10 @@ socket_io.on("connection", (socket) => {
     const document = await document_managment(documentId);
     socket.join(documentId);
 
+    socket.on("check-users", async(documentId) => {
+      const num = (await socket_io.in(documentId).fetchSockets()).length;
+    })
+
     socket.emit("request_document", document.data_entry);
     // Save changes to database
     socket.on("push-changes-db", async (data_entry) => {

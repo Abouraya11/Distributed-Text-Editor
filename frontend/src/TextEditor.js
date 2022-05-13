@@ -55,6 +55,14 @@ function TextEditor() {
     }
   }, [socket, quill]);
 
+  useEffect(() => {
+    if(socket) {
+      setInterval(() => {
+        socket.emit|("check-users", doc_id)
+      }, 500);
+    }
+  })
+
   /* 
    * Quill is used mainly because it allows us to do small operations one at a time instead of copying
    * and pasting the whole document every time a change is made
