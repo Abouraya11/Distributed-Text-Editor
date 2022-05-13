@@ -116,7 +116,7 @@ function TextEditor() {
     setQuill(q);
   }, []);
 
-
+// New Document button handle to generate new document in new tab
   const new_doc = () => {
     const win = window.open(`/documents/${uuidV4()}`, "_blank");
     win.focus();
