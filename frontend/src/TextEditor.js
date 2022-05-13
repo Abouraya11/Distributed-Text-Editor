@@ -30,9 +30,31 @@ function TextEditor() {
   }, []);
 
 
+  useEffect(() => {
+    // To make sure that socket and quill are already created before entering this useeffect
+    if (socket && quill) {
+      //Event listener when receiving changes from server to update quill contents
+      socket.on("update_content", (updates) => {
+        quill.updateContents(updates);
+      });
 
+      //Event listener when text changes, to send it to the server to update other clients and database
 
-  
+      quill.on("text-change", (updates, oldupdates, source) => {
+        // * Only track changes that the user made and discard the APIs changes
+        if (source !== "user") return;
+
+        // Send data to the server
+        socket.emit("broadcast_updates", updates);
+      });
+
+      return () => {
+        socket.off("update_content");
+        quill.off("text-change");
+      };
+    }
+  }, [socket, quill]);
+
   useEffect(() => {
     // To make sure that socket and quill are already created before entering this use effect
     if (socket && quill) {
