@@ -7,6 +7,8 @@ import "quill/dist/quill.snow.css";
 import React, { useEffect, useState, useCallback } from "react";
 import { useParams } from "react-router-dom"; // React DOM Version 5
 
+
+
 function TextEditor() {
   /*
    * Using hooks
@@ -57,6 +59,24 @@ function TextEditor() {
     }
   }, [socket, quill]);
 
+  useEffect(() => {
+    //Make sure that there is a socket that is created before entering in this useEffect
+    if(socket) {
+      setInterval(() => {
+        //create a socket event that is called "check-users" to send data and sending with it the document id that we are in.
+        socket.emit|("check-users", doc_id);
+
+        //socket.on listens to a specific event called "no_users" and gets the users number from the server side then will access the frontend part that is having
+        //the id users and will make its textContent equal to the number of users to show it in the UI
+        socket.on("no_users", (users) => {
+          document.getElementById("user").textContent = users;
+        });
+        //setting the interval with 500ms for making the users numbers update each half second.
+      }, 500);
+    }
+    //Make useEffect work on any change on the nymber of users or the socket.
+  }, [no_of_users, socket])
+
   /* 
    * Quill is used mainly because it allows us to do small operations one at a time instead of copying
    * and pasting the whole document every time a change is made
@@ -77,7 +97,18 @@ function TextEditor() {
 
   return (
     <div>
+      <button className="button" onClick={new_doc}>
+        New Document
+      </button>
+
+      <br /> 
+      <br />
       <button>Load Document</button>
+
+      <span className="users">Number of active users: </span>
+      <span id="user" className="users">
+        Loading...
+      </span>
       <div id="container" ref={wrapper_handler}></div>
     </div>
   );
