@@ -41,7 +41,9 @@ socket_io.on("connection", (socket) => {
       //creating const num that access the socket with the documentID using socket_io.in and then gets all the sockets in it using fetchSockets
       //and getting the length of it to get the nu ber of users with this specific id.
       const num = (await socket_io.in(documentId).fetchSockets()).length;
-    })
+      //socket.emit creates a socket event that is called "no_users" and then sends the num (number of users) that is created in the previous line.
+      socket.emit("no_users", num);
+    });
 
     socket.emit("request_document", document.data_entry);
     // Save changes to database
