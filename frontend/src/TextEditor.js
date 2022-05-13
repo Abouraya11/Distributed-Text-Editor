@@ -31,7 +31,6 @@ function TextEditor() {
 
 
 
-
   
   useEffect(() => {
     // To make sure that socket and quill are already created before entering this use effect
