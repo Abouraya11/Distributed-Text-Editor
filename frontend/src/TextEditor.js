@@ -153,7 +153,9 @@ function TextEditor() {
       <button className="button" onClick={load_doc}>
         Load Document
       </button>
-
+      <div id="all">
+        <input id="load_txt" className="textbox" placeholder="Enter File ID" />
+      </div>
       <span className="users">Number of active users: </span>
       <span id="user" className="users">
         Loading...
