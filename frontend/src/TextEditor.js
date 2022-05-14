@@ -127,8 +127,19 @@ function TextEditor() {
     
     //get the text and the docyment id that the user have written and send it open a new window with a document id as the entered one.
     const text = document.getElementById("load_txt");
-    const win = window.open(`/documents/${text.value}`, "_blank");
-    win.focus();
+    //Handling if the document id that the user entered is empty then there should be an error.
+    if (text.value !== "") {
+      const error = document.querySelector(".error");
+      //Make the error hidden if there is no error and the id entered is correct.
+      error.style.visibility = "hidden";
+      const win = window.open(`/documents/${text.value}`, "_blank");
+      win.focus();
+
+      //if there is error and the field is empty then the error will be shown in the UI.
+    } else {
+      const error = document.querySelector(".error");
+      error.style.visibility = "visible";
+    }
   }
 
   return (
