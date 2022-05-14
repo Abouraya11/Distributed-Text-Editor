@@ -155,6 +155,7 @@ function TextEditor() {
       </button>
       <div id="all">
         <input id="load_txt" className="textbox" placeholder="Enter File ID" />
+        <span className="error">Please enter a valid file ID</span>
       </div>
       <span className="users">Number of active users: </span>
       <span id="user" className="users">
