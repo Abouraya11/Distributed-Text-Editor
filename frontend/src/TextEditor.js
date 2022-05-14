@@ -139,7 +139,9 @@ function TextEditor() {
       <span id="id_doc">{doc_id}</span>
       <br /> 
       <br />
-      <button>Load Document</button>
+      <button className="button" onClick={load_doc}>
+        Load Document
+      </button>
 
       <span className="users">Number of active users: </span>
       <span id="user" className="users">
