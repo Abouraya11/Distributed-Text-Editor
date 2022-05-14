@@ -122,6 +122,15 @@ function TextEditor() {
     win.focus();
   };
 
+  // We check that if the load document button is pressed then it will be handles by opening a new page with the document id that the user provided
+  const load_doc = () => {
+    
+    //get the text and the docyment id that the user have written and send it open a new window with a document id as the entered one.
+    const text = document.getElementById("load_txt");
+    const win = window.open(`/documents/${text.value}`, "_blank");
+    win.focus();
+  }
+
   return (
     <div>
       <button className="button" onClick={new_doc}>
