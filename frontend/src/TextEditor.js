@@ -86,7 +86,7 @@ function TextEditor() {
     if(socket) {
       setInterval(() => {
         //create a socket event that is called "check-users" to send data and sending with it the document id that we are in.
-        socket.emit|("check-users", doc_id);
+        socket.emit("check-users", doc_id);
 
         //socket.on listens to a specific event called "no_users" and gets the users number from the server side then will access the frontend part that is having
         //the id users and will make its textContent equal to the number of users to show it in the UI
