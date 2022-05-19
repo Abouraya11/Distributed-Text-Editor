@@ -1,45 +1,73 @@
 #container {
-    margin-top: 20px;
-  }
-  
+  margin-top: 20px;
+}
+
+.button {
+  display: inline-block;
+  padding: 0.3em 1.2em;
+  margin: 0 0.3em 0.3em 0;
+  border-radius: 2em;
+  box-sizing: border-box;
+  text-decoration: none;
+  font-family: "Roboto", sans-serif;
+  font-weight: 300;
+  color: #ffffff;
+  background-color: #4eb5f1;
+  text-align: center;
+  transition: all 0.2s;
+  height: 40px;
+}
+
+.button:hover {
+  background-color: #4095c6;
+}
+@media all and (max-width: 30em) {
   .button {
-    display: inline-block;
-    padding: 0.3em 1.2em;
-    margin: 0 0.3em 0.3em 0;
-    border-radius: 2em;
-    box-sizing: border-box;
-    text-decoration: none;
-    font-family: "Roboto", sans-serif;
-    font-weight: 300;
-    color: #ffffff;
-    background-color: #4eb5f1;
-    text-align: center;
-    transition: all 0.2s;
-      height: 40px;
+    display: block;
+    margin: 0.2em auto;
   }
-  
-  .button:hover {
-    background-color: #4095c6;
-  }
-  @media all and (max-width: 30em) {
-    .button {
-      display: block;
-      margin: 0.2em auto;
-    }
-  }
-  
-  .textbox {
-    -webkit-border-radius: 5px;
-    -moz-border-radius: 5px;
-    border-radius: 5px;
-    border: 1px solid #848484;
-    outline: 0;
-    height: 20px;
-    width: 450px;
-    padding-left: 10px;
-    height: 35px;
-      font-size: 18px;
-      margin-left: 10px;
-  }
-  
- 
+}
+
+.textbox {
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+  border: 1px solid #848484;
+  outline: 0;
+  height: 20px;
+  width: 450px;
+  padding-left: 10px;
+  height: 35px;
+  font-size: 18px;
+  margin-left: 10px;
+}
+
+#id_doc {
+  display: inline-block;
+  border: 1px solid black;
+  padding: 0px 10px 0px 10px;
+  margin-left: 10px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+  border: 1px solid #848484;
+  outline: 0;
+  font-size: 25px;
+  width: 443px;
+}
+
+#all {
+  display: inline-block;
+}
+
+.error {
+  color: red;
+  margin-left: 10px;
+  font-size: 20px;
+  visibility: hidden;
+  margin-right: 50px;
+}
+
+.users {
+  font-size: 25px;
+}
