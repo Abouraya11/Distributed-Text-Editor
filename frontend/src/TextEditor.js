@@ -1,6 +1,7 @@
 /*
  * Importing needed libraries
  */
+import "./styles.css";
 import { io } from "socket.io-client";
 import Quill from "quill";
 import "quill/dist/quill.snow.css";
