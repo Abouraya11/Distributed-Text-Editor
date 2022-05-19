@@ -17,7 +17,7 @@ function TextEditor() {
   const { id: doc_id } = useParams();
   const [socket, setSocket] = useState();
   const [quill, setQuill] = useState();
-  const [no_of_users, setNoOfUsers] = useState();
+  const [no_of_users] = useState();
 
   useEffect(() => {
     // to resolve cors credentials problem (access-control-allow-origin)
