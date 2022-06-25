@@ -2,6 +2,7 @@
  * Importing needed libraries
  */
 import "./styles.css";
+import NetInfo from '@react-native-community/netinfo';
 import { io } from "socket.io-client";
 import Quill from "quill";
 import "quill/dist/quill.snow.css";
@@ -98,7 +99,37 @@ function TextEditor() {
       }, 500);
     }
     //Make useEffect work on any change on the nymber of users or the socket.
-  }, [no_of_users, socket])
+  }, [no_of_users, socket,doc_id])
+
+
+  const [isConnected, setIsConnected] = useState(false);
+
+  useEffect(() => {
+    const unsub = NetInfo.addEventListener(state => {
+      setIsConnected(state.isConnected);
+    });
+    
+    return () => unsub();
+  }, []);
+
+
+const quillStatus = async () => {
+quill.setText("You cannot write right now! Please wait untill Network Connection is Back then refresh your page....");
+//document.getElementById("user").textContent = "users-1";
+socket.on("no_users", (users) => {
+    document.getElementById("user").innerHTML = "Loading";
+  });
+
+quill.disable();
+  }
+  const quillStatus2 = async () => {
+    quill.enable();
+      }
+  if(!isConnected){
+    quillStatus();
+  }else{
+    quillStatus2();
+  }
 
   /* 
    * Quill is used mainly because it allows us to do small operations one at a time instead of copying
