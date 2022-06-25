@@ -119,8 +119,7 @@ This will tell you how to install the code and run the application in your compu
 6. In the first terminal install the NPM packages for the frontend file with the following commands:
 
    ```sh
-   npm install react react-dom react-r
-   outer-dom react-scripts
+   npm install react react-dom react-router-dom react-scripts
    ```
    ```sh
    npm install socket.io-client
