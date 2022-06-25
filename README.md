@@ -27,7 +27,7 @@
   <summary>Table of Contents</summary>
   <ol>
     <li>
-      <a href="#Project Description">Project Description</a>
+      <a href="#ProjectDescription">Project Description</a>
       <ul>
         <li><a href="#built-with">Built With</a></li>
       </ul>
@@ -39,7 +39,7 @@
         <li><a href="#installation">Installation</a></li>
       </ul>
     </li>
-    <li><a href="#contact">Contributers</a></li>
+    <li><a href="#contributers">Contributers</a></li>
   </ol>
 </details>
 
@@ -48,7 +48,7 @@
 <!-- PROJECT DESCRIPTION -->
 ## Project Description
 
-<img src="./images/Text-Editor2.gif" alt="texteditor example">
+<img id="ProjectDescription" src="./images/Text-Editor2.gif" alt="texteditor example">
 
 Our project is a collaborative/multi-user distributed real-time text editor implemented with React and Node JS. The main goal of the project is building text-editor that supports creating new documents, loading, editing and viewing already created documents and this can be done multiple users or participants synchronously, that was achieved successfully in our project and deployed to be easily used. 
 
@@ -150,6 +150,7 @@ This will tell you how to install the code and run the application in your compu
 
 <!-- Contributers -->
 ## Contributers
+<span id="contributers"></span>
 
 - Omar Mohamed Tawfik ElSaeed ElKordy         (18P2055)
 - Maram Motaz Youssef                                       (18P7312)
