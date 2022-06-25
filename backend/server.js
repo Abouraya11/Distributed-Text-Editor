@@ -6,6 +6,17 @@
 const mongoose = require("mongoose");
 // Requre schema for file
 const File = require("./file");
+// For caching
+const redis = require("redis")
+
+
+// Creating client for caching
+const client = redis.createClient({
+  host:'redis-11795.c52.us-east-1-4.ec2.cloud.redislabs.com',
+  port: '11795',
+  password: 'nPoYMdG5CgNLl1Bs3rFtqgD1JHIry08U'
+})
+
 
 /*
  * Database connection
@@ -36,6 +47,9 @@ socket_io.on("connection", (socket) => {
     const document = await document_managment(documentId);
     socket.join(documentId);
 
+    // Save data to cache
+    client.setex(documentId, 1000, JSON.stringify({_id: document._id, data_entry: document.data_entry }));
+
     // Socket.on listens to a specific event called "check-users"  and collest the documentID
     socket.on("check-users", async(documentId) => {
       //creating const num that access the socket with the documentID using socket_io.in and then gets all the sockets in it using fetchSockets
@@ -63,7 +77,20 @@ socket_io.on("connection", (socket) => {
  */
 async function document_managment(file_id) {
   if (file_id == null) return;
-  const document = await File.findById(file_id);
-  if (document) return document;
-  return await File.create({ _id: file_id, data_entry: "" });
+
+  var cached = false;
+  // Get data from cache if exists
+  client.get(file_id, function (err, data) {
+    if (data) {
+      cached = true;
+      return { _id: file_id, data_entry: data };
+    } else {
+      cached = false;
+    }
+  });
+  if (!cached) {
+    const document = await File.findById(file_id);
+    if (document) return document;
+    return await File.create({ _id: file_id, data_entry: "" });
+  }
 }
