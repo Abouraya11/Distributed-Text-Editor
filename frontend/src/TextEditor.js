@@ -115,10 +115,8 @@ function TextEditor() {
 
 const quillStatus = async () => {
 quill.setText("You cannot write right now! Please wait untill Network Connection is Back then refresh your page....");
-//document.getElementById("user").textContent = "users-1";
-socket.on("no_users", (users) => {
-    document.getElementById("user").innerHTML = "Loading";
-  });
+
+document.getElementById("user").innerHTML = "Loading";
 
 quill.disable();
   }
