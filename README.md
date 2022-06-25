@@ -48,7 +48,7 @@
 <!-- PROJECT DESCRIPTION -->
 ## Project Description
 
-<img src="./images/Text-Editor.gif" alt="texteditor example">
+<img src="./images/Text-Editor_1.gif" alt="texteditor example">
 
 Our project is a collaborative/multi-user distributed real-time text editor implemented with React and Node JS. The main goal of the project is building text-editor that supports creating new documents, loading, editing and viewing already created documents and this can be done multiple users or participants synchronously, that was achieved successfully in our project and deployed to be easily used. 
 
