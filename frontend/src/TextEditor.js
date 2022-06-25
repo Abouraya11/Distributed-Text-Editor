@@ -104,6 +104,9 @@ function TextEditor() {
 
   const [isConnected, setIsConnected] = useState(false);
 
+  // This usefffect work each time when the network connection is lost 
+  //and when the internet connection is back again each time by using eventlistener
+  //that listens to te network status whether connected or lost
   useEffect(() => {
     const unsub = NetInfo.addEventListener(state => {
       setIsConnected(state.isConnected);
@@ -118,15 +121,15 @@ quill.setText("You cannot write right now! Please wait untill Network Connection
 
 document.getElementById("user").innerHTML = "Loading";
 
-quill.disable();
+quill.disable(); // prevent any user from typing in the editor when network connection is lost 
   }
   const quillStatus2 = async () => {
-    quill.enable();
+    quill.enable(); // Connection is back so allow the user to write again after making a refresh
       }
   if(!isConnected){
-    quillStatus();
+    quillStatus(); //Call the function quillStatus to disable quill
   }else{
-    quillStatus2();
+    quillStatus2(); //Call the function quillStatus2 to enable quill (Connection is back!)
   }
 
   /* 
