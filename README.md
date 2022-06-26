@@ -104,9 +104,6 @@ This will tell you how to install the code and run the application in your compu
 4. In the first terminal install the NPM packages for the backend file with the following commands:
 
    ```sh
-   npm install express@4.18.1
-   ```
-   ```sh
    npm install mongoose@6.3.1
    ```
    ```sh
@@ -119,7 +116,7 @@ This will tell you how to install the code and run the application in your compu
 6. In the first terminal install the NPM packages for the frontend file with the following commands:
 
    ```sh
-   npm install react react-dom react-router-dom react-scripts
+   npm install react-scripts react
    ```
    ```sh
    npm install socket.io-client
